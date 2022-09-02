@@ -23,9 +23,10 @@ class DetailPage extends StatelessWidget{
                 height: 310,
                 child: Stack(
                   children:[
-                    Image.asset(food.imageLandscape,fit: BoxFit.cover,),
+                    Image.asset(food.imageLandscape,fit: BoxFit.cover,width: double.infinity,),
 
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           onPressed: (){
@@ -33,15 +34,19 @@ class DetailPage extends StatelessWidget{
                           },
                           icon: const Icon(Icons.arrow_back_ios_new,color: Colors.white,),
                         ),
-                        const SizedBox(width: 210,),
-                        const FavoriteButton(),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          child: Text(food.favoriteNumber,style: const TextStyle(color: Colors.white,fontSize: 16),),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8 ),
-                          child: Icon(Icons.share_outlined,color: Colors.white,size: 30,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const FavoriteButton(),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 8),
+                              child: Text(food.favoriteNumber,style: const TextStyle(color: Colors.white,fontSize: 16),),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8 ),
+                              child: Icon(Icons.share_outlined,color: Colors.white,size: 30,),
+                            ),
+                          ],
                         ),
 
                       ],
